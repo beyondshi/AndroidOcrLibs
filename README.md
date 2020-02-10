@@ -12,11 +12,10 @@
 3.请尽量扫描真实事物，扫描电脑屏幕成功率低且速度慢
 4.如发现与其他本地库编译有冲突，请将arr文件中的“armeabi”文件夹改名为"armeabi-v7a",同时删除其他本地库中除了"armeabi-v7a"以外的所有abi文件夹，最后将build.gradle中的abiFilters改为仅有“armeabi-v7a”即可解决冲突
 ```
-### 1.1版-更新日志
+### 1.2版-更新日志
 ```Xml
-【2020-1-2 14:00】
-1.新增车牌号识别功能
-2.优化包体积，缩减到10兆。（移除了除arm外的所有so包，如您特别需要可联系本人）
+【2020-2-10 16:28】
+1.修复识别车牌号被SO库限制识别次数的bug
 ```
 
 ### 鸣谢 XieZhiFa大神
@@ -42,7 +41,7 @@
     }
     }
     dependencies {
-        implementation (name: 'ocr-library-1.1', ext: 'aar')
+        implementation (name: 'ocr-library-1.2', ext: 'aar')
     }
 ```
 ### 识别身份证及驾驶证核心api（LibraryInitOCR.class）
