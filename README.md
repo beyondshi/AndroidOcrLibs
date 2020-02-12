@@ -45,6 +45,9 @@
         implementation (name: 'ocr-library-1.2', ext: 'aar')
     }
 ```
+```Xml
+Manifest.xml中给存储读写权限、摄像头权限、internet访问权限
+```
 ### 识别身份证及驾驶证核心api（LibraryInitOCR.class）
 ```Java
     //1. Application中初始化
