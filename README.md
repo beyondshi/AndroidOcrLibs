@@ -1,9 +1,8 @@
-# AndroidOcrLibs 安卓离线识别身份证、驾驶证、银行卡、车牌号
+# AndroidOcrLibs 安卓离线识别身份证、驾驶证、银行卡
 ```Xml
 1.极速识别二代身份证(无需联网，离线秒扫，极速识别)身份证所有信息, 包含 姓名、性别、出生年月、详细地址，正反面。可识别新疆少数民族身份证，可保存识别图片。
 2.极速识别驾驶证（无需联网，离线秒扫，极速识别）国家，初始领证，准驾车型，有效期限，可保存识别图片。
 3.极速识别银行卡（无需联网，离线秒扫，极速识别）卡号，过期日期，发卡银行，卡名，机构代码，卡种，可保存识别图片。
-4.极速识别车牌号（无需联网，离线秒扫，极速识别）可识别蓝牌，黄牌，黑牌，白牌，绿牌，可获取到车牌号及颜色，可保存识别图片。
 ```
 ### 注意事项
 ```Xml
@@ -14,10 +13,9 @@
 ```
 ### 1.2版-更新日志
 ```Xml
-【2020-2-12 19:00】
-1.修复识别车牌号被SO库限制识别次数的bug
-2.一定要给INTERNET权限，并且联网情况下使用车牌识别sdk，否则用不了
-```
+【2020-5-13 10:14】
+1.废弃车牌识别功能，官方已作出限制，原来的官方demo的key已无法正常使用
+2.建议车牌识别使用https://github.com/zeusees/HyperLPR这个库
 
 ### 鸣谢 XieZhiFa大神
 ```Xml
@@ -160,56 +158,6 @@ Manifest.xml中给存储读写权限、摄像头权限、internet访问权限
      * 关闭识别sdk
      */
     public native void WTUnInitCardKernal();
-```
-### 识别车牌号核心api(BankCardAPI.class)
-```Java
-   /**
-     * 初始化识别车牌号sdk
-     * @param paramHandler 用于接受识别成功消息
-     */
-    public NativeOcrPn(Handler paramHandler);
-    /**
-     * 实时识别车牌号
-     * @param paramArrayOfByte1 拍摄区车牌数据
-     * @param paramInt1 拍摄区长度
-     * @param paramInt2 拍摄区宽度
-     * @param paramArrayOfInt 识别区坐标，长度4的数组，分别对应识别区域左、上、右、下坐标
-     * @param paramContext 上下文
-     * @return
-     */
-    public int ScanCarNo(byte[] paramArrayOfByte1, int paramInt1, int paramInt2, int[] paramArrayOfInt, Context paramContext);
-    /**
-     * 获取识别结果
-     * @param var1 用于存储返回的识别结果
-     * @param var2 var1数组的长度
-     * @return
-     */
-    public native int GetResult(byte[] var1, int var2);
-    /**
-     * 生成截取的车牌号图片
-     * @param var1 存储图片的路径
-     * @return
-     */
-    public native long CarImage(byte[] var1);
-    
-    //解码结果通过handler 接收
-    switch (msg.what){
-        //解码成功
-        case 201: {
-            byte[] arrayOfByte = new byte[1024];
-            mScanCarApi.GetResult(arrayOfByte, arrayOfByte.length);
-            //保存图片路径
-            String imagePath = newImgPath();
-            mScanCarApi.CarImage(imagePath.getBytes("gbk"));
-            JSONObject localJSONObject1 = new JSONObject(new String(arrayOfByte, "gbk"));
-            //车牌号
-            String mEt_carno = localJSONObject1.getString("Num");
-            //行数
-            String mEt_layer = localJSONObject1.getString("Layer");
-            //颜色
-            String mEt_color = localJSONObject1.getString("Color");
-        }
-    }
 ```
 ### 混淆
 ```Xml
