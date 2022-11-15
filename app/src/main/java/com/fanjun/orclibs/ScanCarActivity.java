@@ -7,25 +7,20 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
 import android.widget.ImageView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.fanjun.orclibs.Utils.CameraUtils;
-
-import org.json.JSONObject;
-
+import hotcard.doc.reader.NativeOcrPn;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import hotcard.doc.reader.NativeOcrPn;
+import org.json.JSONObject;
 
 /**
  * 识别车牌demo

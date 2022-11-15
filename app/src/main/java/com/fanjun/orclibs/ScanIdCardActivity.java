@@ -1,5 +1,6 @@
 package com.fanjun.orclibs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
@@ -7,7 +8,6 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
@@ -27,7 +27,7 @@ import java.util.TimerTask;
  * 识别身份证开源 demo （驾驶证一样）
  * 实际上识别身份证和驾驶证的API是一样的
  */
-public class ScanIdCardActivity extends AppCompatActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
+public class ScanIdCardActivity extends Activity implements Camera.PreviewCallback, SurfaceHolder.Callback {
     private SurfaceView mSurfaceView;
     private SurfaceHolder surfaceHolder;
     Camera mCamera;

@@ -1,20 +1,18 @@
 package com.fanjun.orclibs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.msd.ocr.idcard.LibraryInitOCR;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
-
+import com.yanzhenjie.permission.runtime.Permission;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     Button mScanIdCard, mScanDriverCard, mScanBankCard, mScanCarCard;
     TextView mSuccessText;
     public static final int SCAN_IDCARD_REQUEST = 1;

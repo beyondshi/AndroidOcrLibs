@@ -1,10 +1,10 @@
 package com.fanjun.orclibs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
@@ -20,7 +20,7 @@ import java.util.TimerTask;
 /**
  * 识别银行卡demo
  */
-public class ScanBankCardActivity extends AppCompatActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
+public class ScanBankCardActivity extends Activity implements Camera.PreviewCallback, SurfaceHolder.Callback {
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
     private BankCardAPI bankCardAPI;
